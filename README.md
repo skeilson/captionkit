@@ -26,10 +26,10 @@ keys are needed once the models are downloaded.
 
 - Live captions from one or more USB microphones
 - Operator **Control** window: one card per mic with an on/off toggle and gain slider, plus a live feed
-- Optional room-facing **Caption** window for a second screen, projector, or TV
+- Optional room-facing Caption window for a second screen, projector, or TV
 - New microphones are detected automatically when plugged in mid-session
 - Transcript saved continuously to a timestamped `.txt` file
-- Choice of transcription engine: Whisper (faster-whisper) or Moonshine
+- Choice of transcription engine: Whisper (`faster-whisper`) or Moonshine
 - Custom vocabulary: spelling corrections and Whisper prompt hints
 
 ## Hardware
@@ -89,9 +89,9 @@ Stop with Ctrl+C in the terminal or by closing the Control window.
 ## Tuning tips
 
 - Start with `engine: whisper`, `model_size: base`, `chunk_seconds: 3.0`, `beam_size: 1`.
-- If captions are too slow, lower `chunk_seconds` toward 2.0. Going lower hurts accuracy.
+- If captions are too slow, lower `chunk_seconds` toward `2.0`. Going lower hurts accuracy.
 - If accuracy is poor and your machine has headroom, try `model_size: small` or `beam_size: 2`.
-- Use **gain** to balance mics at different distances from speakers. It amplifies noise
+- Use gain to balance mics at different distances from speakers. It amplifies noise
   as well as speech, so it can't rescue a mic that's simply too far away.
 - Seeing sentences nobody said? That's Whisper hallucinating on background noise.
   Turn on `debug`, check the audio levels, and make sure `initial_prompt` is a word list.
