@@ -17,12 +17,12 @@ report will be credited in the release notes unless you'd prefer otherwise.
 
 ## Security and privacy design
 
-- **Audio stays on the device.** Speech is transcribed locally. CaptionKit
+- Audio stays on the device. Speech is transcribed locally. CaptionKit
   makes no network requests except downloading speech models the first time
   they're used (from Hugging Face).
-- **Transcripts are written to disk** at the path set in `config.yaml`. Treat
+- Transcripts are written to disk at the path set in `config.yaml`. Treat
   them as sensitive meeting records.
-- **Configuration is parsed with `yaml.safe_load`**, which cannot execute code
+- Configuration is parsed with `yaml.safe_load`, which cannot execute code
   embedded in a config file.
 
 ## Automated checks
