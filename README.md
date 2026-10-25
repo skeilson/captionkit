@@ -132,6 +132,7 @@ See [SECURITY.md](SECURITY.md) for how to report a security issue.
 ```
 captionkit/
 ├── main.py                 entry point
+├── install.sh              one-step installer
 ├── config.example.yaml     copy to config.yaml
 ├── requirements.txt        pinned dependencies
 ├── pyproject.toml          Ruff and Bandit settings
