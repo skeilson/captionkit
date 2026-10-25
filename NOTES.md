@@ -4,7 +4,7 @@
 
 Working end-to-end with the MacBook's built-in microphone:
 - Audio capture, device detection, hot-plug support: working
-- Whisper (faster-whisper) and Moonshine engines both wired up, switchable via config.yaml
+- Whisper (`faster-whisper`) and Moonshine engines both wired up, switchable via `config.yaml`
 - Control window (mic cards, gain, on/off) and Caption window (second-screen display): working
 - Transcript saved to file in real time
 - Custom vocabulary corrections (find/replace) and Whisper initial_prompt: working
@@ -17,11 +17,11 @@ model_size: base
 chunk_seconds: 3.0
 beam_size: 1
 ```
-(SILENCE_THRESHOLD lowered from 0.01 to 0.003 in core/transcription.py)
+(`SILENCE_THRESHOLD` lowered from 0.01 to 0.003 in core/transcription.py)
 
 ## Known limitation: chunk-boundary accuracy
 
-Audio is split into fixed, non-overlapping chunks (chunk_seconds). Whisper
+Audio is split into fixed, non-overlapping chunks (`chunk_seconds`). Whisper
 transcribes each chunk in isolation, so words that fall right at a chunk
 boundary get cut off mid-word/mid-sentence with no surrounding context —
 this produces garbled text at the start/end of chunks.
@@ -54,8 +54,8 @@ chunking first, then layer this on if accuracy is still lacking.
 - Re-test Moonshine vs Whisper side by side with the ReSpeaker — Moonshine's
   accuracy issues earlier may have been partly a mic-quality problem.
 - Multi-mic hot-plug testing (only tested with a single device so far).
-- Test whisper.cpp with Apple Metal GPU acceleration as a drop-in replacement
-  for faster-whisper — could enable faster inference and larger model sizes
+- Test `whisper.cpp` with Apple Metal GPU acceleration as a drop-in replacement
+  for `faster-whisper` — could enable faster inference and larger model sizes
   on Apple Silicon, closing the gap with cloud-based approaches.
 
 ## PINNED — Future project: wireless microphone array
@@ -109,7 +109,7 @@ to Wi-Fi → starts streaming → done. No manual intervention.
 4. Start CaptionKit on laptop — mic cards appear for each table
 5. Move caption window to second screen, press F for full-screen
 
-### config.yaml addition (to be implemented)
+### `config.yaml` addition (to be implemented)
 ```yaml
 network_mics:
   - ip: 192.168.1.101
