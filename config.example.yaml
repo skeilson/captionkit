@@ -1,0 +1,117 @@
+# CaptionKit Configuration
+#
+# Copy this file to config.yaml and edit it before a session:
+#   cp config.example.yaml config.yaml
+#
+# config.yaml is ignored by git, so your event-specific vocabulary,
+# mic names, and tuning stay local. All fields are optional.
+
+# ----------------------------------------------------------------------
+# TRANSCRIPTION ENGINE
+# ----------------------------------------------------------------------
+# Which speech-to-text engine to use. Options: whisper, moonshine
+#
+#   whisper   — Large ecosystem, supports 99 languages, well-tested.
+#               In testing so far, the more accurate of the two at normal
+#               conversational volume. Recommended default.
+#
+#   moonshine — Purpose-built for real-time, low-latency transcription on
+#               modest hardware. English only. Faster, but in testing it
+#               dropped quieter speech more often than Whisper.
+engine: whisper
+
+# ----------------------------------------------------------------------
+# MODEL SIZE — only the field matching your chosen engine is used
+# ----------------------------------------------------------------------
+
+# Whisper model size (used only when engine: whisper)
+# Options: tiny, base, small, medium
+#   tiny   — fastest, least accurate. Usually too inaccurate for captions.
+#   base   — good speed/accuracy balance for most laptops.
+#   small  — more accurate, noticeably slower on older machines.
+#   medium — best accuracy, needs a fast machine.
+model_size: base
+
+# Moonshine model size (used only when engine: moonshine)
+# Options: tiny, base
+#   tiny — smallest and fastest (~26MB). Good for quiet, close-mic settings.
+#   base — better accuracy (~57MB), still very fast.
+moonshine_model: base
+
+# ----------------------------------------------------------------------
+# LATENCY / ACCURACY TUNING
+# ----------------------------------------------------------------------
+
+# How many seconds of audio to buffer before transcribing.
+# Lower = faster on-screen text, but less context for the model.
+# Higher = more accurate, more delay. Below ~2.0 accuracy drops sharply.
+# Recommended range: 2.0 – 3.0
+chunk_seconds: 3.0
+
+# Whisper decoding beam width (used only when engine: whisper).
+# 1 = fastest (greedy), 5 = most accurate but slower.
+beam_size: 1
+
+# ----------------------------------------------------------------------
+# OUTPUT
+# ----------------------------------------------------------------------
+
+# Where to save the transcript. Saved continuously during the session.
+output_path: ~/Desktop/captionkit_transcript.txt
+
+# Font size for the caption display window.
+# Increase for larger rooms where people read from further away.
+font_size: 36
+
+# ----------------------------------------------------------------------
+# CUSTOM VOCABULARY / SPELLING
+# ----------------------------------------------------------------------
+
+# Whisper-only: words/names you want the model to favor. Write this as a
+# plain comma-separated LIST of terms, not a sentence. A full sentence can
+# cause Whisper to "hallucinate" that sentence during background noise.
+# Example:
+# initial_prompt: "CaptionKit, ReSpeaker, Kubernetes."
+initial_prompt:
+
+# Works with either engine: a find/replace dictionary applied to every
+# transcribed line before it's displayed and saved. Use this for words
+# that are consistently mis-heard the same way — it's a guaranteed fix,
+# unlike initial_prompt which only nudges probability.
+# Matching is case-insensitive. List the most specific/longest phrases first.
+# Example:
+# corrections:
+#   caption kit: CaptionKit
+#   re-speaker: ReSpeaker
+corrections:
+
+# ----------------------------------------------------------------------
+# WINDOWS
+# ----------------------------------------------------------------------
+
+# Whether to open the second-screen Caption window.
+# Set to false if you're the only person using CaptionKit and don't need
+# a separate room-facing display — the Control window's Live Feed already
+# shows the same transcript.
+show_caption_window: true
+
+# ----------------------------------------------------------------------
+# DEBUGGING
+# ----------------------------------------------------------------------
+
+# When true, prints per-chunk audio levels and the raw (pre-correction)
+# engine output to the terminal. Useful for diagnosing accuracy issues,
+# hallucinations, or "nothing is being transcribed." Noisy — leave false
+# for normal use.
+debug: false
+
+# ----------------------------------------------------------------------
+# MICROPHONE NAMES
+# ----------------------------------------------------------------------
+
+# Optional friendly names for your microphones. CaptionKit matches these
+# keywords (case-insensitive) against the device name and shows the
+# friendly name in the UI and transcript instead.
+mic_names:
+  # ReSpeaker: Front Table
+  # MacBook Pro Microphone: Laptop Mic

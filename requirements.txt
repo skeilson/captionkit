@@ -1,0 +1,6 @@
+# Pinned so installs are reproducible and Dependabot can track updates.
+faster-whisper==1.2.1
+useful-moonshine-onnx==20251121
+sounddevice==0.5.6
+numpy==2.5.4
+PyYAML==6.0.3
