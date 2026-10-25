@@ -42,29 +42,40 @@ with no drivers. For larger rooms, use one per table on a powered USB hub.
 
 ## Setup (macOS)
 
-Requires Python 3.10+ with Tkinter. The python.org installer includes
-Tkinter; if you use Homebrew's Python, also run `brew install python-tk`.
+Requires Python 3.10+ with Tkinter, and [Homebrew](https://brew.sh). The
+python.org installer includes Tkinter; if you use Homebrew's Python, also run
+`brew install python-tk`.
 
 ```bash
-brew install portaudio
-pip3 install -r requirements.txt
-cp config.example.yaml config.yaml
+git clone https://github.com/skeilson/captionkit.git
+cd captionkit
+./install.sh
 ```
+
+`install.sh` does the following:
+
+1. Checks for Python 3.10+ and Tkinter
+2. Installs PortAudio (needed for microphone access) via Homebrew
+3. Creates a virtual environment in `.venv` and installs the pinned
+   dependencies from `requirements.txt` into it
+4. Creates `config.yaml` from `config.example.yaml`
+
+It never overwrites an existing `config.yaml`, so it's safe to re-run, for
+example after pulling updates.
 
 Edit `config.yaml` for your session. Every setting is documented in the file.
 
 If `config.yaml` doesn't exist, CaptionKit automatically falls back to
 `config.example.yaml`, so it runs with the recommended baseline settings out
-of the box. Copy the example to `config.yaml` when you want to customize
-anything; `config.yaml` is git-ignored, so your changes stay local.
+of the box. `config.yaml` is git-ignored, so your changes stay local.
 
 ## Run
 
 ```bash
-python3 main.py
+.venv/bin/python main.py
 ```
 
-The first run downloads the selected model, which can take a minute.
+The first run downloads the selected speech model, which can take a minute.
 Later runs start quickly.
 
 - **Control window**: keep on your laptop. Toggle mics, adjust gain, watch the live feed.
