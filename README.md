@@ -49,10 +49,10 @@ python.org installer includes Tkinter; if you use Homebrew's Python, also run
 ```bash
 git clone https://github.com/skeilson/captionkit.git
 cd captionkit
-./install.sh
+./installCaptionKit.sh
 ```
 
-`install.sh` does the following:
+`installCaptionKit.sh` does the following:
 
 1. Checks for Python 3.10+ and Tkinter
 2. Installs PortAudio (needed for microphone access) via Homebrew
@@ -132,7 +132,7 @@ See [SECURITY.md](SECURITY.md) for how to report a security issue.
 ```
 captionkit/
 ├── main.py                 entry point
-├── install.sh              one-step installer
+├── installCaptionKit.sh    one-step installer
 ├── config.example.yaml     copy to config.yaml
 ├── requirements.txt        pinned dependencies
 ├── pyproject.toml          Ruff and Bandit settings
