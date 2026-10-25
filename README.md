@@ -1,7 +1,7 @@
 # CaptionKit
 
-[![Security checks](https://github.com/YOUR-USERNAME/captionkit/actions/workflows/security.yml/badge.svg)](https://github.com/YOUR-USERNAME/captionkit/actions/workflows/security.yml)
-[![CodeQL](https://github.com/YOUR-USERNAME/captionkit/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/YOUR-USERNAME/captionkit/actions/workflows/github-code-scanning/codeql)
+[![Security checks](https://github.com/skeilson/captionkit/actions/workflows/security.yml/badge.svg)](https://github.com/skeilson/captionkit/actions/workflows/security.yml)
+[![CodeQL](https://github.com/skeilson/captionkit/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/skeilson/captionkit/actions/workflows/github-code-scanning/codeql)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 Real-time, local captioning for in-person meetings, initially built for deaf and
